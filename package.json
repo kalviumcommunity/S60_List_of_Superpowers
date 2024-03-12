@@ -4,7 +4,8 @@
   "description": "**Features of the Project:**\r *These are the categories you can search for*\r - High Powers \r - Mediium Powers",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "serve": "node server.js"
   },
   "author": "",
   "license": "ISC",
