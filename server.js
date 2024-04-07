@@ -1,6 +1,10 @@
 const express = require('express')
-const app = express()
+const mongoose = require('mongoose')
+const cors = require('cors')
 
+
+const app = express()
+app.use(cors())
 
 app.get('/ping', (req, res) => {
     res.send('Hello Node App')
