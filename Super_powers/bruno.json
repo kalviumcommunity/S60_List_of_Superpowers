@@ -1,0 +1,9 @@
+{
+  "version": "1",
+  "name": "Super_powers",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ]
+}
