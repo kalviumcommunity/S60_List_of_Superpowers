@@ -1,4 +1,7 @@
 const express = require('express')
+const mongoose = require('mongoose')
+const routes = require('./routes')
+
 const app = express()
 const {connectiondata,modeldata}=require("./mongodata")
 
@@ -6,6 +9,7 @@ function gettingData(){
     return modeldata.db.readyState === 1
 }
 
+app.use('/',routes)
 
 app.get('/ping', (req, res) => {
     const calling  = gettingData()
