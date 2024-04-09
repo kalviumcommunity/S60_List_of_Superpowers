@@ -1,8 +1,16 @@
 const express = require('express')
 const app = express()
 
+const {modeldata}=require("./mongodata")
+
 app.get('/get', (req,res) =>{
-    res.send('Successful get request')
+    modeldata.find({})
+    .then((source) =>{
+        res.json({source})
+    })
+    .catch((err) =>{
+        res.json({err})
+    })
 })
 
 app.post('/post',(req,res) => {
