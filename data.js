@@ -9,7 +9,7 @@ const data = [
         Super_Power_Category : "Human-level",
         Name : "Hawkeye (Clint Barton)",
         Super_Power : "Master archer with exceptional accuracy and combat skills.",
-        Image : "https://static.wikia.nocookie.net/heroes-and-villain/images/b/b4/Hawkeye_Profile.png/revision/latest?cb=20190615214749",
+        Image : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRriYkvKB7d0rfiC0yDVNR8Gttk1YB2wz7obUQ1EkgbGA&s",
     },
     {
         Super_Power_Category : "Human-level",
@@ -27,7 +27,7 @@ const data = [
         Super_Power_Category : "Super-Human-level",
         Name : "Captain America (Steve Rogers)",
         Super_Power : "Enhanced strength, speed, agility, and endurance due to the Super Soldier Serum.",
-        Image : "https://static.wikia.nocookie.net/avengerslegacies/images/f/f3/Steve.png/revision/latest?cb=20210125065752",
+        Image : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT34FrdBzti4W7YKRPg_POwQfvIv2EL03xR_oE7AagSaA&s",
     },
     {
         Super_Power_Category : "Super-Human-level",
