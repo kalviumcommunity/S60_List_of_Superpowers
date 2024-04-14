@@ -14,7 +14,9 @@ app.get('/get', (req,res) =>{
 })
 
 app.post('/post',(req,res) => {
-    res.status(201).send("Successful post request")
+    modeldata.create(req.body)
+    .then(source => {res.json({source})})
+    .catch((err) => res.json(err))
 })
 
 app.put('/put/:id',(req,res) =>{
