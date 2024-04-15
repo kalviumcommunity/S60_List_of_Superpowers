@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 function SuperData(){
     const [info,setInfo] = useState([])
@@ -18,6 +19,10 @@ function SuperData(){
     },[])
 
     return(
+    <div>
+        <Link to='./Add'>
+            <button>Add</button>
+        </Link>
         <div>
             {
                 info.map((element) =>{
@@ -32,6 +37,7 @@ function SuperData(){
                 })
             }
         </div>
+    </div>
     )
 }
 
