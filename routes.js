@@ -19,12 +19,32 @@ app.post('/post',(req,res) => {
     .catch((err) => res.json(err))
 })
 
-app.put('/put/:id',(req,res) =>{
-    res.send("Successfully updated")
+
+app.get('/getid/:id',(req,res)=> {
+    const get = req.params.id
+    modeldata.findById({_id:get})
+    .then(powers => res.json(powers))
+    .catch(err => console.log(err))
 })
 
+app.put('/put/:id',(req,res) =>{
+   const put = req.params.id
+   modeldata.findByIdAndUpdate({_id: put},{
+    Name : req.body.Name,
+    Super_Power_Category : req.body.Super_Power_Category,
+    Super_Power : req.body.Super_Power,
+    Image : req.body.Image
+   })
+   .then(powers => res.send(powers))
+   .catch(err => console.log("error",err))
+})
+
+
 app.delete('/delete/:id',(req,res)=>{
-    res.send("Successfully deleted data")
+   const del = req.params.id
+   modeldata.findByIdAndDelete({_id:del})
+   .then(powers => res.json(powers))
+   .catch(err => res.json({err}))
 })
 
 module.exports = app;
