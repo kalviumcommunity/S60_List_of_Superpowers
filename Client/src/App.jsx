@@ -3,6 +3,7 @@ import './App.css'
 import { Routes, Route } from 'react-router-dom'
 import SuperData from './Components/SuperData'
 import Add from './Components/Add'
+import Change from './Components/Change'
 // import Add from './Components/Add'
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
       <Routes>
         <Route path='/' element={<SuperData/>}></Route>
         <Route path='/Add' element={<Add/>}></Route>
+        <Route path='/update/:id' element={<Change/>}></Route>
       </Routes>
     </div>
     
