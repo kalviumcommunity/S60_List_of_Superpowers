@@ -2,6 +2,7 @@ const express = require('express')
 const app = express()
 
 const {modeldata}=require("./mongodata")
+const JoiSchema = require("./JoiSchema")
 
 app.get('/get', (req,res) =>{
     modeldata.find({})
@@ -14,6 +15,11 @@ app.get('/get', (req,res) =>{
 })
 
 app.post('/post',(req,res) => {
+    const {error , value} = JoiSchema.validate(req.body)
+    if(error){
+        res.json({message : "Error in the Format", error : error.message})
+    }
+
     modeldata.create(req.body)
     .then(source => {res.json({source})})
     .catch((err) => res.json(err))
