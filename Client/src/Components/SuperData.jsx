@@ -1,10 +1,10 @@
 import axios from 'axios';
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 function SuperData(){
     const [info,setInfo] = useState([])
-    // const navigate = useNavigate()
+    const navigate = useNavigate()
 
     useEffect(() =>{
         const dataFetching = async() => {
@@ -27,7 +27,14 @@ function SuperData(){
         } catch(err) {
             console.log("An error accoured when deleting the data:",err)
         }
+
     };
+
+    const Signout = () => {
+            document.cookie = "Email=; expires=Wed, Mar 26 2005 00:00:00 GMT";
+            document.cookie = "Password=; expires=Wed, Mar 26 2005 00:00:00 GMT";
+            navigate("/");
+    }
 
     return(
     <div>
@@ -51,6 +58,8 @@ function SuperData(){
     </svg>
   </span> </button>
         </Link>
+        <button className='bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded' onClick={Signout}>Sign out</button>
+        
         
         <div className='grid grid-cols-1 md:grid-cols-2 gap-4 '>
             {
