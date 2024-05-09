@@ -14,14 +14,23 @@ function dataConnection(){
     })
 }
 
-const mongooseSchema = new mongoose.Schema({
+const mongooseSchema = mongoose.Schema({
     Super_Power_Category :  String,
     Name : String,
     Super_Power : String,
     Image : String
 })
 
+const userLoginSchema = mongoose.Schema({
+    User_Name: String,
+    User_Age : Number,
+    Email : String,
+    Password : String
+})
+
 // console.log(data)
+
 const modelData = mongoose.model('firstData', mongooseSchema)
+const modelUserData = mongoose.model('userData', userLoginSchema)
 // modelData.insertMany(data).then(() =>{console.log("connected")})
-module.exports = {modeldata : modelData, connectiondata : dataConnection}
+module.exports = {modeldata : modelData, connectiondata : dataConnection, userdata: modelUserData}

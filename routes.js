@@ -1,7 +1,7 @@
 const express = require('express')
 const app = express()
 
-const {modeldata}=require("./mongodata")
+const {modeldata, userdata}=require("./mongodata")
 const JoiSchema = require("./JoiSchema")
 
 app.get('/get', (req,res) =>{
@@ -51,6 +51,28 @@ app.delete('/delete/:id',(req,res)=>{
    modeldata.findByIdAndDelete({_id:del})
    .then(powers => res.json(powers))
    .catch(err => res.json({err}))
+})
+
+app.post("/createuser", (req,res) =>{
+    userdata.create(req.body)
+    .then(result => res.json(result))
+    .catch(err => res.json(err))
+})
+
+app.post("/Userlogin", (req,res) =>{
+    const {Email, Password} = req.body
+    userdata.findOne({Email:Email})
+    .then(client =>{
+        if(client){
+            if(client.Password === Password){
+                res.json("Access Granted")
+            }else{
+                res.json("Wrong info 😡, Who are you, Please fill correct info")
+            }
+        }else{
+            res.json("Access Denied")
+        }
+    })
 })
 
 module.exports = app;
