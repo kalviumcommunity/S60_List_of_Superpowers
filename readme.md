@@ -1,4 +1,4 @@
-# Silly Superpowers
+# Superpowers
 
 **Features of the Project:**
 *These are the categories you can see for*
@@ -12,3 +12,4 @@
 
 *User can also delete the entity of super hero data if they want and total add a new one of their favorite super-hero and heroine*
 
+# Frontend Deployed Link: https://6614c2208babb95b43272c89--tubular-puffpuff-ce740c.netlify.app/
