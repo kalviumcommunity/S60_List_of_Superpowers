@@ -1,5 +1,9 @@
 const express = require('express')
+const jwt = require('jsonwebtoken')
+const dotenv = require('dotenv')
+
 const app = express()
+dotenv.config()
 
 const {modeldata, userdata}=require("./mongodata")
 const JoiSchema = require("./JoiSchema")
@@ -65,7 +69,10 @@ app.post("/Userlogin", (req,res) =>{
     .then(client =>{
         if(client){
             if(client.Password === Password){
-                res.json("Access Granted")
+                const Token = jwt.sign({Email:client.Email,Password:client.Password}, process.env.PASSWORD)
+                res.json({correct : "Access Granted", Token : Token})
+                console.log(Token)
+                
             }else{
                 res.json("Wrong info 😡, Who are you, Please fill correct info")
             }

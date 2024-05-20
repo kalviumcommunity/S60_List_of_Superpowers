@@ -26,7 +26,7 @@ function Userlogin (){
         event.preventDefault()
         axios.post("http://localhost:3000/Userlogin",{Email,Password})
         .then(result => {
-            if(result.data == "Access Granted"){
+            if(result.data.correct == "Access Granted"){
                 navigate('/superdata')
                 console.log("success")
                 document.cookie = `Email = ${Email}; expires Sat, 26 Mar 2050 23:59:59 GMT`
