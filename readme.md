@@ -1,11 +1,15 @@
 # Superpowers
 
 **Features of the Project:**
-*These are the categories you can search for*
-- Human-level
+*These are the categories you can see for*
+- Human level 
+- Super-Huamn level
+- God level
 
-- Superhuman-level
+*User can add new super heroes and heroine and their powers and with an images of the super heroes and heroin*
 
-- God-level
+*Also they can update the existing Name, Level, Super-power, and their images if anything in the given data is wrong*
+
+*User can also delete the entity of super hero data if they want and total add a new one of their favorite super-hero and heroine*
 
 # Frontend Deployed Link: https://6614c2208babb95b43272c89--tubular-puffpuff-ce740c.netlify.app/
