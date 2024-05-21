@@ -64,11 +64,11 @@ app.post("/createuser", (req,res) =>{
 })
 
 app.post("/Userlogin", (req,res) =>{
-    const {Email, Password} = req.body
+    const {Email, Password, Name} = req.body
     userdata.findOne({Email:Email})
     .then(client =>{
         if(client){
-            if(client.Password === Password){
+            if(client.Password === Password && client.Name === Name){
                 const Token = jwt.sign({Email:client.Email,Password:client.Password}, process.env.PASSWORD)
                 res.json({correct : "Access Granted", Token : Token})
                 console.log(Token)
@@ -80,6 +80,12 @@ app.post("/Userlogin", (req,res) =>{
             res.json("Access Denied")
         }
     })
+})
+
+app.get("/Userlogin", (req,res) =>{
+    userdata.find({})
+    .then((userData) =>{res.json({userData})})
+    .catch((err) => {res.json({err})})
 })
 
 module.exports = app;

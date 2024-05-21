@@ -9,6 +9,7 @@ function Userlogin (){
     const [Password, setPassword] = useState("")
     const navigate = useNavigate()
     const [failed, setFailed] = useState("")
+    const [owner, setOwner] = useState('')
 
     const handleMail = (event) =>{
         setEmail(event.target.value)
@@ -22,15 +23,20 @@ function Userlogin (){
         setFailed("Wrong info 😡, Who are you, Please fill correct info")
     }
 
+    const handleOwner = (event) =>{
+      setOwner(event.target.value)
+    }
+
     const handleSubmit = (event) => {
         event.preventDefault()
-        axios.post("http://localhost:3000/Userlogin",{Email,Password})
+        axios.post("http://localhost:3000/Userlogin",{Email,Password,owner})
         .then(result => {
             if(result.data.correct == "Access Granted"){
                 navigate('/superdata')
                 console.log("success")
                 document.cookie = `Email = ${Email}; expires Sat, 26 Mar 2050 23:59:59 GMT`
                 document.cookie = `Password = ${Password}; expires Sat, 26 Mar 2050 23:59:59 GMT`
+                document.cookie = `Creator = ${owner}; expires Sat, 26 Mar 2050 23:59:59 GMT`
             }else{
                 handlefailer()
             }
@@ -58,6 +64,23 @@ function Userlogin (){
       We missed you, sign in to continue.
     </p>
     <div className="mt-10">
+      <div className="relative">
+        <label 
+        className="block mb-3 text-sm font-medium text-zinc-600 dark:text-zinc-200"
+        htmlFor="Name">
+          Name
+        </label>
+        <input
+          placeholder="Name"
+          className="block w-full px-4 py-3 mt-2 text-zinc-800 bg-white border-2 rounded-lg dark:border-zinc-600 dark:bg-zinc-800 dark:text-zinc-200 focus:border-blue-500 dark:focus:border-blue-400 focus:ring-opacity-50 focus:outline-none focus:ring focus:ring-blue-400"
+          name="Name"
+          id="Name"
+          type="Name"
+          required
+         
+          onChange={handleOwner}
+        />
+      </div>
       <div className="relative">
         <label
           className="block mb-3 text-sm font-medium text-zinc-600 dark:text-zinc-200"

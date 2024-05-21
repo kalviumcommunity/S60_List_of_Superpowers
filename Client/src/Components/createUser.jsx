@@ -34,7 +34,11 @@ function CreateUser() {
         Email,
         Password,
       })
-      .then((result) => console.log(result))
+      .then((result) => {
+        console.log(result)
+        document.cookie = `Email = ${Email}; expires Sat, 26 Mar 2050 23:59:59 GMT`
+        document.cookie = `Creator = ${User_Name}; expires Sat, 26 Mar 2050 23:59:59 GMT`
+      })
       .catch((err) => console.log(err));
   };
 

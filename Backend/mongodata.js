@@ -18,7 +18,8 @@ const mongooseSchema = mongoose.Schema({
     Super_Power_Category :  String,
     Name : String,
     Super_Power : String,
-    Image : String
+    Image : String,
+    Creator: String
 })
 
 const userLoginSchema = mongoose.Schema({
