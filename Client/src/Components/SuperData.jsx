@@ -33,13 +33,14 @@ function SuperData(){
     const Signout = () => {
             document.cookie = "Email=; expires=Wed, Mar 26 2005 00:00:00 GMT";
             document.cookie = "Password=; expires=Wed, Mar 26 2005 00:00:00 GMT";
+            document.cookie = "Creator=; expires=Wed, Mar 26 2005 00:00:00 GMT"
             navigate("/");
     }
 
     return(
     <div>
-        <Link to='./Add'>
-            <button className='rounded-lg relative w-36 h-10 cursor-pointer flex items-center border border-green-500 bg-green-500 group hover:bg-green-500 active:bg-green-500 active:border-green-500'>
+       
+            <button  onClick={() => navigate('/Add')} className='rounded-lg relative w-36 h-10 cursor-pointer flex items-center border border-green-500 bg-green-500 group hover:bg-green-500 active:bg-green-500 active:border-green-500'>
                 <span className='text-gray-200 font-semibold ml-8 transform group-hover:translate-x-20 transition-all duration-300'>Add Data</span>
                 <span
     className="absolute right-0 h-full w-10 rounded-lg bg-green-500 flex items-center justify-center transform group-hover:translate-x-0 group-hover:w-full transition-all duration-300"
@@ -57,7 +58,7 @@ function SuperData(){
       <line x1="5" x2="19" y1="12" y2="12"></line>
     </svg>
   </span> </button>
-        </Link>
+  <button onClick={() => navigate('/search')} >Search</button>
         <button className='bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded' onClick={Signout}>Sign out</button>
         
         

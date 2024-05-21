@@ -6,6 +6,7 @@ import Add from './Components/Add'
 import Change from './Components/Change'
 import CreateUser from './Components/createUser'
 import Userlogin from "./Components/Userlogin"
+import SearchUser from "./Components/SearchUser"
 // import Add from './Components/Add'
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
     <div>
       <Routes>
         <Route path='/' element={<CreateUser/>}></Route>
+        <Route path='/search' element={<SearchUser/>}></Route>
         <Route path='/Userlogin' element={<Userlogin/>}></Route>
         <Route path='/superdata' element={<SuperData/>}></Route>
         <Route path='/Add' element={<Add/>}></Route>
